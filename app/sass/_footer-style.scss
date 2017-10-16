@@ -1,0 +1,147 @@
+.footer {
+	&-holder{
+		background-color: #ecf0f1;
+		padding-top: 46px;
+		padding-bottom: 10px;
+	}
+	&__column {
+		float: left;
+		margin-bottom: 20px;
+		&.about-us {
+			width: 32%;
+			max-width: 370px;
+			margin-right: 2.5%;
+			.text {
+				max-height: 6em;
+				overflow: hidden;
+			}
+		}
+		&.contacts {
+			width: 40%;
+			margin-right: 2.5%;
+		}
+		&.social {
+			width: 23%;
+		}
+		.heading {
+			font-size: 20px;
+			margin-bottom: 19px;
+		}
+		.text {
+			font-size: 16px;
+			line-height: 1.5;
+			color: #606366;
+			word-spacing: -1px;
+		}
+	}
+
+	// Contacts
+	.contacts {
+		&__col {
+			display: inline-block;
+			width: 50%;
+		}
+		&__row {
+			margin-bottom: 10px;
+			.icon-holder {
+				float: left;
+				width: 22px;
+				height: 22px;
+				font-size: 13px;
+				color: $accent-color2;
+				@extend %circle;
+				border-color: $accent-color2;
+				i {
+					display: inline-block;
+					vertical-align: middle;
+					line-height: 20px;
+				}
+			}
+			.text {
+				display: block;
+				padding-left: 15%;
+			}
+			.mail {
+				color: $main-color;
+			}
+		}
+		.btn-style {
+			&:hover {
+				color: $accent-color2;
+				border-color: $accent-color2;
+			}
+		}
+	}
+
+	// Social
+	.social {
+		&__item {
+			display: inline-block;
+			vertical-align: top;
+			margin-right: 10px;
+			margin-bottom: 15px;
+		}
+		&__link {
+			display: block;
+			width: 40px;
+			height: 40px;
+			font-size: 20px;
+			color: $icon-footer;
+			@extend %circle;
+			border-color: $icon-footer;
+			line-height: 38px;
+			transition: $transition;
+			&:hover {
+				color: $accent-color1;
+				border-color: $accent-color1;
+			}
+		}
+	}
+}
+
+// Copyrights
+.copyrights {
+	background-color: #e3e7e9;
+	border-top: 1px solid #cbd0d4;
+	&__text {
+		color: #899096;
+		text-align: center;
+		padding: {
+			top: 25px;
+			bottom: 25px;
+		}
+	}
+}
+
+@media screen and (max-width: 1092px) {
+	.footer {
+		.contacts {
+			&__col {
+				width: 100%;
+			}
+			&__row {
+				.text {
+					padding-left: 30px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.footer {
+		&__column {
+			&.about-us {
+				width: 100%;
+				max-width: initial;
+				.text {
+					max-height: 12em;
+				}
+			}
+			&.contacts,
+			&.social {
+				width: 100%;
+			}
+		}
+	}	
+}

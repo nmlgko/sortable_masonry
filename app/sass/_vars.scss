@@ -1,0 +1,26 @@
+$font-light: 'latolight', sans-serif;
+$font-regular: 'latoregular', sans-serif;
+$main-color: #34383d;
+$icon-color: #bdc3c7;
+$icon-footer: #d1d5d8;
+$accent-color1: #41bedd;
+$accent-color2: #a255c4;
+$transition: all 0.2s linear;
+$btn-hover: #4e4ca0;
+
+%add-el {
+	content: '';
+	position: absolute;
+	display: inline-block;
+}
+%circle {
+	border: {
+		radius: 50%;
+		width: 1px;
+		style: solid;		
+	}
+	text-align: center;
+}
+%box-shadow {
+	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+}

@@ -1,0 +1,323 @@
+// Header
+.header {
+	.fixed-head {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 5;
+		background-color: #fff;
+		@extend %box-shadow;
+	}
+	// Logo
+	.logo {
+		float: left;
+		width: 20%;
+		&__link {
+			display: inline-block;
+			height: 100px;
+			line-height: 100px;
+		}
+	}
+	// Main Navigation
+	.nav {
+		position: relative;
+		z-index: 2;
+		float: right;
+		width: 75%;
+		&__list {
+			position: relative;
+			padding-top: 37px;
+			text-align: right;
+		}
+		&__item {
+			display: inline-block;
+			vertical-align: top;
+			margin-right: 4%;
+			&:hover .nav__link {
+				color: $accent-color1;
+			}
+			& > .dropmenu {
+				top: 100%;
+				padding-top: 40px;
+				& > .dropmenu-list {
+					position: relative;
+					&::before {
+						position: absolute;
+						top: 0;
+						left: 0;
+						z-index: 1;
+						@extend %add-el;
+						width: 50%;
+						border-top: 1px solid #3badc9;
+						border-bottom: 1px solid #3fb8d6;
+					}
+				}
+			}			
+		}
+		&__link {
+			display: inline-block;
+			font-size: 18px;
+			vertical-align: middle;
+			transition: $transition;
+			cursor: pointer;
+			letter-spacing: -0.2px;
+			i {
+				margin-left: 3px;
+			}
+		}
+		.with-dropmenu {
+			&:hover {
+				& > .dropmenu{
+					display: block;
+				}
+			}
+		}
+	}
+
+	// Dropmenu
+	.dropmenu {
+		position: absolute;
+		display: none;
+		&-list {
+			text-align: left;
+			background-color: #fff;
+			@extend %box-shadow;
+		}
+		&__item {
+			position: relative;
+			display: block;
+			min-width: 230px;
+			border-top: 1px solid #ecf0f1;
+		}
+		&__link {
+			position: relative;
+			display: block;
+			padding: 15px 45px 15px 15px;
+			cursor: pointer;	
+			i {
+				position: absolute;
+				top: 15px;
+				right: 10px;
+				font-size: 18px;
+			}
+			&:hover {
+				background-color: #f7f9f9;
+				color: $accent-color1;
+			}
+		}
+		.dropmenu {
+			top: -1px;
+			left: 100%;
+		}
+	}
+	&-holder {
+		padding-top: 102px;
+		&__wrap {
+			padding-top: 98px;
+			padding-bottom: 108px;
+		}
+		.heading {
+			color: #fff;
+			font-size: 60px;
+			text-align: center;
+			margin-bottom: 10px;
+		}
+	}
+}
+.search-holder {
+	position: relative;
+	float: right;
+	padding-top: 30px;
+}
+.btn-search {
+	width: 40px;
+	height: 40px;
+	line-height: 38px;
+	@extend %circle;
+	color: $icon-color;
+	font-size: 20px;
+	border-color: $icon-color;
+}
+.form-holder {
+	position: absolute;
+	display: none;
+	top: 100px;
+	right: 0;
+	width: 350px;
+	padding: 15px;
+	background-color: #fff;
+	@extend %box-shadow;
+	.form {
+		position: relative;
+	}
+	.btn-search {
+		position: absolute;
+		top: 0;
+		right: 0;
+		border: 0;
+	}
+	.form-style {
+		padding-right: 15px;
+	}	
+}
+
+// Breadcrumbs
+.breadcrumbs {
+	text-align: center;
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		i {
+			color: #fff;
+		}
+	}
+	&__link {
+		color: #fff;
+		transition: $transition;
+		font-family: $font-regular;
+	}
+}
+
+@media screen and (min-width: 959px) {
+	.hidden-lg {
+		display: none;
+	}
+	.mobile-nav {
+		display: none !important;
+	}	
+}
+
+@media screen and (max-width: 960px) {
+	.hidden-lg {
+		display: block;
+	}
+	.hidden-md {
+		display: none;
+	}
+	.header {
+		.logo__link {
+			height: 60px;
+			line-height: 60px;
+		}
+		.nav {
+			position: fixed;
+			display: none;
+			top: 62px;
+			right: 0;
+			width: 320px;
+			height: 100%;
+			background-color: #fff;
+			box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+			overflow-y: auto;
+			&__list {
+				padding-top: 0;
+			}
+			&__item {
+				display: block;
+				border-top: 1px solid #ecf0f1;
+				margin-right: 0;
+				& > .dropmenu {
+					padding-top: 0;
+					position: static;
+					.dropmenu-list::before {
+						left: initial;
+						right: 0;
+					}
+				}
+				&:last-of-type {
+					border-bottom: 1px solid #ecf0f1;
+				}
+			}
+			&__link {
+				width: 100%;
+				padding: 15px;
+			}
+			.with-dropmenu {
+				&:hover {
+					background-color: #f7f9f9;
+					.dropmenu {
+						display: none;
+					}
+				}
+			}
+		}
+		.search-holder {
+			padding-top: 10px;
+			margin-right: 35px;
+			.form-holder {
+				top: 60px;
+			}
+		}
+		.dropmenu {
+			&__link {
+				i {
+					right: 20px;
+					transform: rotate(90deg);
+				}
+			}
+			.dropmenu {
+				position: static;
+				.dropmenu__link {
+					padding-right: 50px;
+				}
+			}
+		}
+		.dropmenu__item {
+			text-align: right;
+		}
+		&-holder {
+			padding-top: 62px;
+			&__wrap {
+				padding-top: 60px;
+				padding-bottom: 60px;
+			}
+		}
+	}
+	.menu-btn {
+		position: relative;
+		float: right;
+		margin-top: 10px;
+		width: 40px;
+		height: 40px;
+		cursor: pointer;
+		border: {
+			style: solid;
+			width: 1px;
+			color: $accent-color1;
+			radius: 5px;
+		}
+	}
+	.menu-btn-line {
+		display: block;
+		position: absolute;
+		top: 9px;
+		left: 4px;
+		width: 80%;
+		height: 2px;
+		background-color: $accent-color1;
+		margin-bottom: 5px;
+		&:nth-of-type(2) {
+			top: 18px;
+		}
+		&:last-child {
+			top: 27px;
+		}
+	}
+}
+
+@media screen and (max-width: 599px) {
+	.header {
+		.logo {
+			width: auto;
+		}
+		.search-holder {
+			display: none;
+		}
+		&-holder {
+			.heading {
+				font-size: 36px;
+			}
+		}
+	}
+}
